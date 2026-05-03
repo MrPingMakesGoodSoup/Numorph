@@ -15,9 +15,6 @@ Cargo.toml.lock
 # Documentation
 docs/
 
-# Pre-computed caches
-/comp/cache/*
-
 # Temporary files
 *.tmp
 *.swp
