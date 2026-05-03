@@ -1,0 +1,43 @@
+[package]
+name = "numorph"
+version = "0.7.3-alpha"
+edition = "2021"
+
+[dependencies]
+rust-nightly = { version = "1.70.0", features = ["std", "core_std"] } # Required for Quantumic serialization
+num-traits = "0.2"
+ndarray = "0.15"
+rayon = "1.8"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+libc = "0.2"
+cuda = { version = "1.1.0", optional = true } # Experimental GPU support
+opencl = { version = "0.20.0", optional = true } # Experimental GPU support
+ahash = "0.8"
+log = "0.4"
+env_logger = "0.10"
+
+[features]
+gpu = ["cuda", "opencl"]
+advanced_morphing = ["rust-nightly"]
+experimental_compression = ["serde_json"]
+
+[dev-dependencies]
+criterion = "0.5"
+
+[[bench]]
+name = "morphing_benchmarks"
+harness = false
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+opt-level = "3"
+strip = true
+
+[profile.dev]
+opt-level = 0
+
+[package.metadata.cargo-miri]
+skip = ["cuda", "opencl"]
+

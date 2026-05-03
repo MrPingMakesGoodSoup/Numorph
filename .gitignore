@@ -1,0 +1,42 @@
+# Compiler generated files
+*.o
+*.obj
+*.exe
+*.pdb
+
+# Build artifacts
+target/
+build/
+
+# Dependency cache
+Cargo.lock
+Cargo.toml.lock
+
+# Documentation
+docs/
+
+# Pre-computed caches
+/comp/cache/*
+
+# Temporary files
+*.tmp
+*.swp
+
+# Editor backup files
+.*~
+*.bak
+*.DS_Store
+
+# IDE specific files
+.idea/
+.vscode/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Debug logs
+*.log
+
+# Experimental features (ignored)
+/experimental_features/*
